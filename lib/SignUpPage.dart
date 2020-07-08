@@ -20,6 +20,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Form(
           key: _formKey,
@@ -155,7 +156,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ],
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 185,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
