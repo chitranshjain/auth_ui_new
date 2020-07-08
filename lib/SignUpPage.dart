@@ -1,16 +1,15 @@
-import 'package:authuinew/SignUpPage.dart';
-import 'package:authuinew/contants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'FormField.dart';
 
-class LoginPage extends StatefulWidget {
+import 'FormField.dart';
+import 'contants.dart';
+
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   TextEditingController emailController = new TextEditingController(text: "");
   TextEditingController pwController = new TextEditingController(text: "");
 
@@ -45,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: <Widget>[
                       Text(
-                        'Sign In',
+                        'Sign Up',
                         style: GoogleFonts.mukta(
                           textStyle: TextStyle(
                               fontSize: 40, fontWeight: FontWeight.w400),
@@ -53,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Text(
-                        'Sign in to your account.',
+                        'It\'s free and only takes a few moments',
                         style: GoogleFonts.mukta(
                           textStyle: TextStyle(
                               fontSize: 22,
@@ -138,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Sign in',
+                                  'Sign up',
                                   style: GoogleFonts.mukta(
                                       textStyle: TextStyle(
                                           color: Colors.white,
@@ -157,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            'New here?',
+                            'Already registered?',
                             style: GoogleFonts.mukta(
                                 textStyle: TextStyle(
                                     color: Colors.black.withOpacity(0.6),
@@ -168,14 +167,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpPage()),
-                              );
+                              Navigator.pop(context);
                             },
                             child: Text(
-                              'Sign Up',
+                              'Sign In',
                               style: GoogleFonts.mukta(
                                   textStyle: TextStyle(
                                       color: myPrimaryColor,
