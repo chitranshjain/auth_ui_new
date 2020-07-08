@@ -1,18 +1,21 @@
-import 'package:authuinew/Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'FormField.dart';
 import 'contants.dart';
 
-class SignUpPage extends StatefulWidget {
+class ProfileSetup extends StatefulWidget {
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _ProfileSetupState createState() => _ProfileSetupState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  TextEditingController emailController = new TextEditingController(text: "");
-  TextEditingController pwController = new TextEditingController(text: "");
+class _ProfileSetupState extends State<ProfileSetup> {
+  TextEditingController nameController = new TextEditingController(text: "");
+  TextEditingController phoneController =
+      new TextEditingController(text: "+91-");
+  TextEditingController ageController = new TextEditingController(text: "");
+  TextEditingController addressController = new TextEditingController(text: "");
+  TextEditingController zipController = new TextEditingController(text: "");
 
   final _formKey = GlobalKey<FormState>();
 
@@ -45,30 +48,33 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Column(
                     children: <Widget>[
                       Text(
-                        'Sign Up',
+                        'Profile Details',
                         style: GoogleFonts.mukta(
                           textStyle: TextStyle(
                               fontSize: 40, fontWeight: FontWeight.w400),
                           color: Colors.black,
                         ),
                       ),
-                      Text(
-                        'It\'s free and only takes a few moments',
-                        style: GoogleFonts.mukta(
-                          textStyle: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black.withOpacity(0.6)),
+                      Container(
+                        child: Text(
+                          'Now that we\'ve got you registered, let\'s get a few of your details',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.mukta(
+                            textStyle: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black.withOpacity(0.6)),
+                          ),
                         ),
                       ),
                       SizedBox(
-                        height: size.height * 0.15,
+                        height: size.height * 0.02,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'Email address',
+                            'Name',
                             textAlign: TextAlign.start,
                             style: GoogleFonts.mukta(
                               textStyle: TextStyle(
@@ -83,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       CustomFormField(
                         size: size,
-                        controller: emailController,
+                        controller: nameController,
                         obscureText: false,
                       ),
                       SizedBox(
@@ -93,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'Password',
+                            'Mobile Number',
                             textAlign: TextAlign.start,
                             style: GoogleFonts.mukta(
                               textStyle: TextStyle(
@@ -108,8 +114,83 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       CustomFormField(
                         size: size,
-                        controller: pwController,
-                        obscureText: true,
+                        controller: phoneController,
+                        obscureText: false,
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Age',
+                            textAlign: TextAlign.start,
+                            style: GoogleFonts.mukta(
+                              textStyle: TextStyle(
+                                  color: Colors.black.withOpacity(0.6),
+                                  fontSize: 18),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      CustomFormField(
+                        size: size,
+                        controller: ageController,
+                        obscureText: false,
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Address',
+                            textAlign: TextAlign.start,
+                            style: GoogleFonts.mukta(
+                              textStyle: TextStyle(
+                                  color: Colors.black.withOpacity(0.6),
+                                  fontSize: 18),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      CustomFormField(
+                        size: size,
+                        controller: addressController,
+                        obscureText: false,
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Zip',
+                            textAlign: TextAlign.start,
+                            style: GoogleFonts.mukta(
+                              textStyle: TextStyle(
+                                  color: Colors.black.withOpacity(0.6),
+                                  fontSize: 18),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      CustomFormField(
+                        size: size,
+                        controller: zipController,
+                        obscureText: false,
                       ),
                       SizedBox(
                         height: 48,
@@ -120,11 +201,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           InkWell(
                             onTap: () {
                               if (_formKey.currentState.validate()) {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProfileSetup()),
-                                );
+                                print('Validated');
                               }
                             },
                             child: Container(
@@ -142,7 +219,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Sign up',
+                                  'Submit',
                                   style: GoogleFonts.mukta(
                                       textStyle: TextStyle(
                                           color: Colors.white,
@@ -150,37 +227,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                           fontWeight: FontWeight.w400)),
                                 ),
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 200,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Already registered?',
-                            style: GoogleFonts.mukta(
-                                textStyle: TextStyle(
-                                    color: Colors.black.withOpacity(0.6),
-                                    fontSize: 18)),
-                          ),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Sign In',
-                              style: GoogleFonts.mukta(
-                                  textStyle: TextStyle(
-                                      color: myPrimaryColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600)),
                             ),
                           ),
                         ],
