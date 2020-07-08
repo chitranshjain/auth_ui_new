@@ -23,6 +23,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Form(
           key: _formKey,
@@ -93,7 +94,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                         obscureText: false,
                       ),
                       SizedBox(
-                        height: 16,
+                        height: 12,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -118,7 +119,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                         obscureText: false,
                       ),
                       SizedBox(
-                        height: 16,
+                        height: 12,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -143,7 +144,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                         obscureText: false,
                       ),
                       SizedBox(
-                        height: 16,
+                        height: 12,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -168,7 +169,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                         obscureText: false,
                       ),
                       SizedBox(
-                        height: 16,
+                        height: 12,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -193,7 +194,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                         obscureText: false,
                       ),
                       SizedBox(
-                        height: 48,
+                        height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
